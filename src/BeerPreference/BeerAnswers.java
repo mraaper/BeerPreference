@@ -1,9 +1,14 @@
 package BeerPreference;
 
-public class BeerGeneral {
+import java.util.ArrayList;
+
+import lib.TextIO;
+
+public class BeerAnswers {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		
 		
 		// public class - KÜSITLUS
 		
@@ -13,6 +18,7 @@ public class BeerGeneral {
 		
 		// KÜSITLUSE class
 		// meetod - küsitluse vorm
+		// küsitluse alla kuuluvad: nimi, vanus (kui > 18, siis OK, kui < 18, siis NÕUP)
 		// TICKID - õllevalikute jne kohta, ei ole eraldi küsimus-vastus tekstina
 		// USER INPUT meetod - võimaldab kasutajal vastata ja salvestab vastused muutujatesse
 		// CHANGES THE QUESTION meetod
