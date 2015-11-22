@@ -7,6 +7,7 @@ import lib.TextIO;
 public class BeerAnswers {
 
 	public static void main(String[] args) {
+		new Questionnaire();
 		
 		
 		
