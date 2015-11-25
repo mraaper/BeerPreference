@@ -44,7 +44,7 @@ class Beer extends JFrame implements ActionListener {
 		bg.add(choice2);
 		bg.add(choice3);
 
-		lblmess = new JLabel("Choose a correct anwswer");
+		lblmess = new JLabel("Anna oma sisend");
 		lblmess.setForeground(Color.BLACK);
 		lblmess.setFont(new Font("Berlin Sans FB", Font.BOLD, 15));
 		btnext = new JButton("Next");
@@ -160,7 +160,7 @@ class Beer extends JFrame implements ActionListener {
 	public class Report extends JFrame {
 		Report() {
 			setTitle("Õllesoovitus");
-			setSize(650, 100);
+			setSize(900, 250);
 			setBackground(Color.WHITE);
 			addWindowListener(new WindowAdapter() {
 				public void windowClosing(WindowEvent e) {
@@ -175,22 +175,20 @@ class Beer extends JFrame implements ActionListener {
 
 		class Draw extends Canvas {
 			public void paint(Graphics g) {
-				int qnum = 10;
-				int x = 10;
-				int y = 20;
+				
+				int x = 150;
+				int y = 120;
 
-				g.setFont(new Font("Arial", Font.BOLD, 24));
-
-				y = 30;
+				g.setFont(new Font("Arial", Font.BOLD, 36));
 
 				if (pointCollection < 10) {
-					g.drawString("Soovitus: Lindemans Kriek või Värska originaal", x, y);
+					g.drawString("Soovitus: Lindemans Kriek  3,5%", x, y);
 				} else if (pointCollection >= 10 && pointCollection <= 13) {
-					g.drawString("Soovitus: Brewdog Punk IPA", x, y);
+					g.drawString("Soovitus: Brewdog Punk IPA  5,6%", x, y);
 				} else if (pointCollection >= 14 && pointCollection <= 17) {
-					g.drawString("Soovitus: Rochefort Trappistes 8", x, y);
+					g.drawString("Soovitus: Rochefort Trappistes 8  9,2%", x, y);
 				} else {
-					g.drawString("Soovitus: Boneyard Baltic Notorious IPA3", x, y);
+					g.drawString("Soovitus: Boneyard Baltic Notorious IPA3  12%", x, y);
 				}
 
 			}
@@ -211,8 +209,8 @@ public class BeerPreference {
 
 // Iga küsimuse vastamise korral on väljendub sisend punktides.
 // Sõltuvalt vastustest ja akumuleerunud punktidest tuleneb ka õllesoovitus.
-// Vahemikke on 4: 6p-9p, 10p-12p, 13-15p, 16-25p.
-// I kategooria soovitus: Presidendi Pilsner 4,2%
+// Vahemikke on 4: 0-9p, 10p-13p, 14-17p, 18-21p.
+// I kategooria soovitus: Lindemans Kriek 3,5%
 // II kategooria soovitus: Brewdog Punk IPA 5,6%
 // III kategooria soovitus: Rochefort Trappistes 8 9,2%
 /// IV kategooria soovitus: Boneyard Baltic Notorious IPA3 12%
