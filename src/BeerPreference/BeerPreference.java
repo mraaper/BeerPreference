@@ -13,7 +13,7 @@ import java.util.Enumeration;
 // Koodiread võtsin eeskujuks, mille alusel koostasin enda user inputi ja vastavad vahemikud
 
 class Beer extends JFrame implements ActionListener {
-	JPanel background;
+	JPanel background; 
 	JRadioButton choice1;
 	JRadioButton choice2;
 	JRadioButton choice3;
@@ -26,50 +26,50 @@ class Beer extends JFrame implements ActionListener {
 	int pointCollection = 0;
 
 	Beer() {
-		initializedata();
-		setTitle("Õllesoovitaja");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(430, 350);
-		setLocation(300, 100);
-		setResizable(false);
-		Container setScene = getContentPane();
-		setScene.setLayout(null);
-		setScene.setBackground(Color.BLACK);
-		buttonSelection = new ButtonGroup();
-		choice1 = new JRadioButton("Choice1", true);
+		initializedata(); //initsialiseerib küsimused ja valikuvariandid
+		setTitle("Õllesoovitaja"); //küsimustiku akna pealkiri
+		setDefaultCloseOperation(EXIT_ON_CLOSE); //sulgeb akna iga küsimuse järel
+		setSize(430, 350); //küsimustiku akna suuruse parameetrid
+		setLocation(300, 100); //küsimustiku akna paiknemine
+		setResizable(false); //küsimustiku aken ei suurene, on fikseeritud
+		Container setScene = getContentPane(); //konteinerobjekt
+		setScene.setLayout(null); //võimaldab muuta konteineris vajalikke parameetreid ja objekte
+		setScene.setBackground(Color.BLACK);//värvuse valik
+		buttonSelection = new ButtonGroup(); //luuakse nuppude (valikvastuste) grupp 1-3
+		choice1 = new JRadioButton("Choice1", true); //valida lubatakse vaid 1 vastus, mitte kõiki
 		choice2 = new JRadioButton("Choice2", true);
 		choice3 = new JRadioButton("Choice3", true);
 
-		buttonSelection.add(choice1);
+		buttonSelection.add(choice1); //lisatakse 3 varianti
 		buttonSelection.add(choice2);
 		buttonSelection.add(choice3);
 
-		setLabel = new JLabel();
-		setLabel.setForeground(Color.BLACK);
-		setLabel.setFont(new Font("Berlin Sans FB", Font.BOLD, 15));
-		nextButton = new JButton("Next");
-		nextButton.setForeground(Color.BLACK);
-		nextButton.addActionListener(this);
-		background = new JPanel();
-		background.setBackground(Color.LIGHT_GRAY);
+		setLabel = new JLabel(); //luuakse JLabel objekt setLabel, mis lubab kuvada küsimusi
+		setLabel.setForeground(Color.BLACK); //küsimuste värv
+		setLabel.setFont(new Font("Berlin Sans FB", Font.BOLD, 15)); //font'i parameetrid
+		nextButton = new JButton("Next"); //nupu "Next" loomine
+		nextButton.setForeground(Color.BLACK); //nupu "Next" värvus
+		nextButton.addActionListener(this); //lubatakse nupule vajutamisega mingi tegevus
+		background = new JPanel(); //luuakse küsimustiku background ehk taust
+		background.setBackground(Color.LIGHT_GRAY); //read 54-57 on küsimustiku parameetrid
 		background.setLocation(10, 10);
 		background.setSize(400, 300);
 		background.setLayout(new GridLayout(6, 2));
-		background.add(setLabel);
+		background.add(setLabel); //küsimustik ja valikuvariandid lisatakse konteinerisse
 		background.add(choice1);
 		background.add(choice2);
 		background.add(choice3);
-
-		background.add(nextButton);
-		setScene.add(background);
-		setVisible(true);
-		questionAmount = 0;
-		calculate(questionAmount);
+		background.add(nextButton); 
+		
+		setScene.add(background); //objekt lisatakse konteinerisse
+		setVisible(true); //küsimustiku aken tehakse nähtavaks
+		questionAmount = 0; //initsialiseeritakse küsimustiku id
+		calculate(questionAmount); //tuuakse esile esimene küsimus
 
 	}
 
-	public void actionPerformed(ActionEvent e) {
-
+	public void actionPerformed(ActionEvent e) { //actionPerformed meetod, mis tegeleb küsimuste arvu
+												 //haldamise ja lõppvastuse genereerimisega
 		if (nextButton.getText().equals("Next")) {
 			if (questionAmount < 6) {
 
@@ -86,8 +86,8 @@ class Beer extends JFrame implements ActionListener {
 
 	}
 
-	public void initializedata() {
-		beerQuestion = new String[10][5];
+	public void initializedata() { //küsimuste ja vastuste massiiv
+		beerQuestion = new String[7][4]; //massiivi parameetrid (7 küsimust + 4 vastusevarianti koos esialgse küsimusega
 
 		beerQuestion[0][0] = "Palun märkige oma vanus";
 		beerQuestion[0][1] = "18-30";
@@ -126,7 +126,7 @@ class Beer extends JFrame implements ActionListener {
 
 	}
 
-	public int getPoints() {
+	public int getPoints() { //tagastab kasutaja poolt tehtud vastuse valiku
 		int points = 0;
 		Enumeration<AbstractButton> buttons = buttonSelection.getElements();
 		while (buttons.hasMoreElements()) {
@@ -140,25 +140,25 @@ class Beer extends JFrame implements ActionListener {
 		return points;
 	}
 
-	public void calculate(int score) {
+	public void calculate(int score) { //küsimuste punktiarvutus
 		setLabel.setText("  " + beerQuestion[score][0]);
-		choice1.setText(beerQuestion[score][1]);
-		choice2.setText(beerQuestion[score][2]);
-		choice3.setText(beerQuestion[score][3]);
+		choice1.setText(beerQuestion[score][1]); //iga küsimuse puhul variant nr 1 = 1p
+		choice2.setText(beerQuestion[score][2]); //iga küsimuse puhul variant nr 2 = 2p
+		choice3.setText(beerQuestion[score][3]); //iga küsimuse puhul variant nr 3 = 3p
 
-		choice1.setSelected(true);
+		choice1.setSelected(true); //ainult üks variant on võimalik valida
 	}
 
-	public void reset() {
+	public void reset() { //küsimustiku lõppedes kuvatakse taas esimene aken ehk toimub reset
 		questionAmount = 0;
 
 		calculate(questionAmount);
 		nextButton.setText("Next");
 	}
 
-	public class Report extends JFrame {
-		Report() {
-			setTitle("Õllesoovitus");
+	public class Report extends JFrame { //Report aken kuvatakse, kui kõik küsimuse on vastatud
+		Report() { //antakse õllesoovitus
+			setTitle("Õllesoovitus"); //allpool read on seotud õllesoovituse parameetritega
 			setSize(1200, 250);
 			setBackground(Color.WHITE);
 			addWindowListener(new WindowAdapter() {
@@ -172,7 +172,7 @@ class Beer extends JFrame implements ActionListener {
 			setVisible(true);
 		}
 
-		class Draw extends Canvas {
+		class Draw extends Canvas { //õllesoovituse akna parameetrid
 			public void paint(Graphics g) {
 
 				int x = 150;
@@ -180,7 +180,7 @@ class Beer extends JFrame implements ActionListener {
 
 				g.setFont(new Font("Arial", Font.BOLD, 36));
 
-				if (pointCollection < 10) {
+				if (pointCollection < 10) { //õllesoovitus vastavalt punktide summale, tsükkel
 					g.drawString("Madis Raaper (IA17) soovitab: Lindemans Kriek  3,5%", x, y);
 				} else if (pointCollection >= 10 && pointCollection <= 13) {
 					g.drawString("Madis Raaper (IA17) soovitab: Brewdog Punk IPA  5,6%", x, y);
