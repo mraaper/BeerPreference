@@ -12,8 +12,8 @@ import java.util.Enumeration;
 // Kasutatud on koodi saidilt http://java.worldbestlearningcenter.com/2013/04/quiz-program.html
 // Koodiread võtsin eeskujuks, mille alusel koostasin enda user inputi ja vastavad vahemikud
 
-class Beer extends JFrame implements ActionListener { // sõnastatakse kõik
-														// vajalikud parameetrid
+class Beer extends JFrame implements ActionListener { // sõnastatakse kõik vajalikud parameetrid
+													 
 	JPanel background;
 	JRadioButton choice1;
 	JRadioButton choice2;
