@@ -29,8 +29,7 @@ class Beer extends JFrame implements ActionListener { // sõnastatakse kõik vajal
 	Beer() {
 		initializedata(); // initsialiseerib küsimused ja valikuvariandid
 		setTitle("Õllesoovitaja"); // küsimustiku akna pealkiri
-		setDefaultCloseOperation(EXIT_ON_CLOSE); // sulgeb akna iga küsimuse
-													// järel
+		setDefaultCloseOperation(EXIT_ON_CLOSE); // sulgeb akna iga küsimuse järel
 		setSize(430, 350); // küsimustiku akna suuruse parameetrid
 		setLocation(300, 100); // küsimustiku akna paiknemine
 		setResizable(false); // küsimustiku aken ei suurene, on fikseeritud
@@ -49,23 +48,18 @@ class Beer extends JFrame implements ActionListener { // sõnastatakse kõik vajal
 		buttonSelection.add(choice2);
 		buttonSelection.add(choice3);
 
-		setLabel = new JLabel(); // luuakse JLabel objekt setLabel, mis lubab
-									// kuvada küsimusi
+		setLabel = new JLabel(); // luuakse JLabel objekt setLabel, mis lubab kuvada küsimusi
 		setLabel.setForeground(Color.BLACK); // küsimuste värv
-		setLabel.setFont(new Font("Berlin Sans FB", Font.BOLD, 15)); // font'i
-																		// parameetrid
+		setLabel.setFont(new Font("Berlin Sans FB", Font.BOLD, 15)); // font'i parameetrid
 		nextButton = new JButton("Next"); // nupu "Next" loomine
 		nextButton.setForeground(Color.BLACK); // nupu "Next" värvus
-		nextButton.addActionListener(this); // lubatakse nupule vajutamisega
-											// mingi tegevus
+		nextButton.addActionListener(this); // lubatakse nupule vajutamisega tegevus
 		background = new JPanel(); // luuakse küsimustiku background ehk taust
-		background.setBackground(Color.LIGHT_GRAY); // read 54-57 on küsimustiku
-													// parameetrid
+		background.setBackground(Color.LIGHT_GRAY); // read 54-57 on küsimustiku parameetrid
 		background.setLocation(10, 10);
 		background.setSize(400, 300);
 		background.setLayout(new GridLayout(6, 2));
-		background.add(setLabel); // küsimustik ja valikuvariandid lisatakse
-									// konteinerisse
+		background.add(setLabel); // küsimustik ja valikuvariandid lisatakse konteinerisse
 		background.add(choice1);
 		background.add(choice2);
 		background.add(choice3);
@@ -175,7 +169,7 @@ class Beer extends JFrame implements ActionListener { // sõnastatakse kõik vajal
 	}
 
 	public class Report extends JFrame { // Report aken kuvatakse, kui kõik
-											// küsimuse on vastatud
+											// küsimused on vastatud
 		Report() { // antakse õllesoovitus
 			setTitle("Õllesoovitus"); // allpool read on seotud õllesoovituse
 										// parameetritega
@@ -200,8 +194,7 @@ class Beer extends JFrame implements ActionListener { // sõnastatakse kõik vajal
 
 				g.setFont(new Font("Arial", Font.BOLD, 36));
 
-				if (pointCollection < 10) { // õllesoovitus vastavalt punktide
-											// summale, tsükkel
+				if (pointCollection < 10) { // õllesoovitus vastavalt punktide summale, tsükkel
 					g.drawString("Madis Raaper (IA17) soovitab: Lindemans Kriek  3,5%", x, y);
 				} else if (pointCollection >= 10 && pointCollection <= 13) {
 					g.drawString("Madis Raaper (IA17) soovitab: Brewdog Punk IPA  5,6%", x, y);
