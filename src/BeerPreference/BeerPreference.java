@@ -93,10 +93,8 @@ class Beer extends JFrame implements ActionListener { // sõnastatakse kõik vajal
 	}
 
 	public void initializedata() { // küsimuste ja vastuste massiiv
-		beerQuestion = new String[7][4]; // massiivi parameetrid (7 küsimust + 4
-											// vastusevarianti koos esialgse
-											// küsimusega
-
+		beerQuestion = new String[7][4]; // massiivi parameetrid (7 küsimust + 4 vastusevarianti
+											// koos esialgse küsimusega
 		beerQuestion[0][0] = "Palun märkige oma vanus";
 		beerQuestion[0][1] = "18-30";
 		beerQuestion[0][2] = "31-49";
@@ -134,7 +132,7 @@ class Beer extends JFrame implements ActionListener { // sõnastatakse kõik vajal
 
 	}
 
-	public int getPoints() { // tagastab kasutaja poolt tehtud vastuse valiku
+	public int getPoints() { // tagastab kasutaja poolt tehtud vastuse valiku(võtab selle sisse)
 		int points = 0;
 		Enumeration<AbstractButton> buttons = buttonSelection.getElements();
 		while (buttons.hasMoreElements()) {
@@ -161,18 +159,17 @@ class Beer extends JFrame implements ActionListener { // sõnastatakse kõik vajal
 	}
 
 	public void reset() { // küsimustiku lõppedes kuvatakse taas esimene aken
-							// ehk toimub reset
+						 // ehk toimub reset
 		questionAmount = 0;
 
 		calculate(questionAmount);
 		nextButton.setText("Next");
 	}
 
-	public class Report extends JFrame { // Report aken kuvatakse, kui kõik
-											// küsimused on vastatud
+	public class Report extends JFrame { // Report aken kuvatakse, kui kõik küsimused on vastatud
+										
 		Report() { // antakse õllesoovitus
-			setTitle("Õllesoovitus"); // allpool read on seotud õllesoovituse
-										// parameetritega
+			setTitle("Õllesoovitus"); // allpool read on seotud õllesoovituse akna parameetritega
 			setSize(1200, 250);
 			setBackground(Color.WHITE);
 			addWindowListener(new WindowAdapter() {
