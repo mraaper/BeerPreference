@@ -34,13 +34,10 @@ class Beer extends JFrame implements ActionListener { // sõnastatakse kõik vajal
 		setLocation(300, 100); // küsimustiku akna paiknemine
 		setResizable(false); // küsimustiku aken ei suurene, on fikseeritud
 		Container setScene = getContentPane(); // konteinerobjekt
-		setScene.setLayout(null); // võimaldab muuta konteineris vajalikke
-									// parameetreid ja objekte
+		setScene.setLayout(null); // võimaldab muuta konteineris vajalikke parameetreid ja objekte							
 		setScene.setBackground(Color.BLACK);// värvuse valik
-		buttonSelection = new ButtonGroup(); // luuakse nuppude (valikvastuste)
-												// grupp 1-3
-		choice1 = new JRadioButton("Choice1", true); // valida lubatakse vaid 1
-														// vastus, mitte kõiki
+		buttonSelection = new ButtonGroup(); // luuakse nuppude (valikvastuste) grupp 1-3											
+		choice1 = new JRadioButton("Choice1", true); // valida lubatakse vaid 1 vastus, mitte kõiki												
 		choice2 = new JRadioButton("Choice2", true);
 		choice3 = new JRadioButton("Choice3", true);
 
